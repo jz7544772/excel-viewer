@@ -1,0 +1,23 @@
+<div class="row">
+	<h1>{{documentName}}</h1>
+	<div class="col-md-12" ng-repeat="person in people">
+		<div id="peopleWrapper" ng-repeat="info in person" class="col-md-4">
+			<label class="col-md-4">{{fields[$index]}}: </label> 
+			<span class="col-md-2">
+				<button type="button" class="btn btn-primary btn-xs" ng-click="swithInfoEdit($parent.$index, $index)">
+					<span class="glyphicon glyphicon-pencil">
+					</span>
+				</button> 
+			</span>
+
+			<span class="col-md-6" ng-if="currentEdit.p!=$parent.$index || currentEdit.i!=$index">
+				{{info}}
+			</span>
+
+			<span class="col-md-6" ng-if="currentEdit.p==$parent.$index && currentEdit.i==$index" class="col-md-4">
+				<input class="form-control" type="text" required ng-model="editedInfoValue">
+				<a href="" ng-click="updateInfoValue(editedInfoValue)">done</a>
+			</span>
+		</div>
+	</div>
+</div>

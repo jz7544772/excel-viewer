@@ -1,0 +1,16 @@
+input{
+	border-left-width: 8px;
+	border-style: solid;
+}
+
+input.ng-invalid{
+	border-color: #3498DB;
+}
+
+input.ng-valid{
+	border-color: #49BE20;
+}
+
+#peopleWrapper{
+	margin: 10px 0px;
+}

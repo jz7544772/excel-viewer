@@ -1,0 +1,39 @@
+<div class="row">
+	<h3 ng-if="username!==undefined"><u>{{username}}'s Space</u></h3>
+</div>
+
+<div id="privateSection" class="row" ng-show="!visitor">
+	<input id="excelFileInputField" type="file" multiple accept=".xlsx">
+	<div class="col-md-12" id="filePreveiwWrapper" ng-if="chosenFiles.length>0" style="padding:0px;">
+		<h2>Files to be uploaded:</h2>
+		<span class="col-md-3" ng-repeat="file in chosenFiles">
+			{{file.name}} <button ng-click="removeChosenFile($index)" type="button" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+		</span>
+	</div>
+
+	<div class="col-md-12" style="padding:0px;">
+		<button style="margin:20px 0 20px 0;" ng-disabled="chosenFiles.length==0 || !chosenFiles" type="button" class="btn btn-success" ng-click="uploadExcelFile()">
+			Upload
+		</button>
+	</div>
+
+	<div class="col-md-12" style="padding:0px; margin-top:20px;">
+		<h2>Private Files</h2>
+		<span class="col-md-4" ng-repeat="filename in myPrivateFiles">
+			<a href="/users/{{username}}/private/{{filename}}">{{filename}}</a>
+			<button type="button" class="btn btn-info btn-xs" ng-click="shareExcelFile($index)"><span class="glyphicon glyphicon-share"></span>share</button>
+		</span>
+	</div>
+</div>
+
+<div class="row">
+	<h2>Public Files</h2>
+	<span class="col-md-4" ng-repeat="filename in myPublicFiles">
+		<a href="/users/{{username}}/public/{{filename}}">{{filename}}</a>
+		<button type="button" class="btn btn-danger btn-xs" ng-click="unshareExcelFile($index)" ng-if="!visitor"><span class="glyphicon glyphicon-share"></span>unshare</button>
+	</span>
+</div>
+
+
+
+<!-- <pre>{{$location.path()}}</pre> -->

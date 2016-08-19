@@ -1,0 +1,22 @@
+{
+  "name": "Intro",
+  "version": "0.0.0",
+  "description": "An Introduction Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "form",
+    "angularjs",
+    "bootstrap"
+  ],
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "multer": "^0.1.8",
+    "node-xlsx": "^0.5.1"
+  },
+  "author": "Jason Guo",
+  "license": "ISC"
+}
